@@ -1,0 +1,175 @@
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+
+// Reset
+//@import "normalize.less";
+//@import "print.less";
+
+// Core CSS
+@import "scaffolding.less";
+@import "type.less";
+@import "code.less";
+@import "grid.less";
+//@import "tables.less";
+@import "forms.less";
+@import "buttons.less";
+
+// Components
+//@import "component-animations.less";
+//@import "glyphicons.less";
+@import "dropdowns.less";
+//@import "button-groups.less";
+//@import "input-groups.less";
+@import "navs.less";
+@import "navbar.less";
+@import "breadcrumbs.less";
+@import "pagination.less";
+//@import "pager.less";
+@import "labels.less";
+//@import "badges.less";
+//@import "jumbotron.less";
+//@import "thumbnails.less";
+//@import "alerts.less";
+//@import "progress-bars.less";
+//@import "media.less";
+//@import "list-group.less";
+//@import "panels.less";
+//@import "wells.less";
+//@import "close.less";
+
+// Components w/ JavaScript
+//@import "modals.less";
+//@import "tooltip.less";
+//@import "popovers.less";
+//@import "carousel.less";
+
+// Utility classes
+@import "utilities.less";
+@import "responsive-utilities.less";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300);
+
+/*@font-size-base: 13px;*/
+@font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@headings-font-family: "Open Sans Condensed";
+@headings-font-weight: 700;
+
+body {
+  background-image: url('../img/skulls.png');
+  padding: 30px 0 50px;
+}
+
+@media (max-width: @screen-xs-max) {
+  .container {
+    padding: 0;
+    > .row {
+      margin: 0;
+      > [class^='col-'] {
+        padding: 5px;
+      }
+    }
+  }
+}
+
+.box-wrapper {
+  background-image: url('../img/wrapper.png');
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  @media (max-width: @screen-xs-max) {
+    border-radius: 5px;
+    padding: 5px;
+  }
+}
+
+.box-common() {
+  background-color: #fff;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.box {
+  .box-common;
+  padding: 10px;
+  @media (max-width: @screen-xs-max) {
+    padding: 5px;
+  }
+}
+
+.box-extra-padded {
+  .box-common;
+  padding: 10px 20px;
+}
+
+.extra-padding {
+  padding: 0 10px 10px;
+  @media (max-width: @screen-xs-max) {
+    padding: 0 5px 10px;
+  }
+}
+
+.box-header {
+  background-color: #b3b39d;
+  border-radius: 4px 4px 0 0;
+  color: #fff;
+  padding: 10px 20px;
+  width: 100%;
+  h3 {
+    margin: 0;
+  }
+}
+
+.secondary-box {
+  background-color: #111;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.brand {
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  h1, h2 {
+    margin: 0;
+    font-weight: 700;
+  }
+  .tagline {
+    margin: 10px 0 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+.post-meta {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  font-size: 80%;
+  margin: 0 0 20px;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  width: 100%;
+  > div:not(:last-child):after {
+    color: #ccc;
+    content: "•";
+    margin-right: 6px;
+    padding: 0 0 0 10px;
+  }
+  > div {
+    display: inline-block;
+    padding: 2px 0;
+  }
+}
+
+footer {
+  p {
+    font-size: 90%;
+    margin-bottom: 5px;
+  }
+  p:last-child {
+    margin-bottom: 20px;
+  }
+}
