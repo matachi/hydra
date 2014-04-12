@@ -1,15 +1,13 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from hydra.views import Main
+from hydra.views import Main, Contact
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'hydra.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
     url(r'^$', Main.as_view(), name='index'),
+    url(r'^contact/$', Contact.as_view(), name='contact'),
+    url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^admin/', include(admin.site.urls)),
 )

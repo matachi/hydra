@@ -7,15 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Title</title>
+  <title>{% block title %}MaTachi.se{% endblock %}</title>
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-  <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+  {% block head_extra %}{% endblock %}
 </head>
 <body>
 <div class="container">
@@ -29,18 +28,14 @@
             <h5 class="tagline">Personal projects and thoughts</h5>
           </div>
           <ul class="nav nav-pills nav-stacked hidden-xs">
-            <li class="active"><a href="#">about</a></li>
-            <li><a href="#">contact</a></li>
-            <li><a href="#">blog</a></li>
-            <li><a href="#">mediagoblin</a></li>
-            <li><a href="#">projects</a></li>
+            <li{% if page == 'about' %} class="active"{% endif %}><a href="#">about</a></li>
+            <li{% if page == 'contact' %} class="active"{% endif %}><a href="{% url 'contact' %}">contact</a></li>
+            <li{% if page == 'blog' %} class="active"{% endif %}><a href="{% url 'blog:posts' %}">blog</a></li>
           </ul>
           <ul class="nav nav-pills visible-xs">
-            <li class="active"><a href="#">about</a></li>
-            <li><a href="#">contact</a></li>
-            <li><a href="#">blog</a></li>
-            <li><a href="#">mediagoblin</a></li>
-            <li><a href="#">projects</a></li>
+            <li{% if page == 'about' %} class="active"{% endif %}><a href="#">about</a></li>
+            <li{% if page == 'contact' %} class="active"{% endif %}><a href="{%  url 'contact' %} %}">contact</a></li>
+            <li{% if page == 'blog' %} class="active"{% endif %}><a href="{%  url 'blog:posts' %}">blog</a></li>
           </ul>
         </div>
       </header>
@@ -48,39 +43,14 @@
     <div class="col-sm-8 col-lg-9">
       <div class="box-wrapper">
         <div class="box">
-          <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="active">contact</li>
-          </ol>
+          {% block breadcrumb %}
+            <ol class="breadcrumb">
+              <li class="active">Home</li>
+            </ol>
+          {% endblock %}
           <div class="extra-padding">
-          <div class="page-header">
-            <h1><a href="#">New API!</a></h1>
+            {% block content %}{% endblock %}
           </div>
-          <div class="post-meta">
-            <div class="meta-date">February 15, 2014</div>
-            <div class="meta-tags"><a>Bitcoin</a>, technology, Dogecoin, Internet, Money</div>
-            <div class="meta-comments">No comments</div>
-          </div>
-          <p>Our industry is a little odd to say the least No I am mot going to dribble on about haw tech, or perhaps more accurately the software industry, has made the world a much better place. What really means me proud to be in this field Is the amount of personal accountability our C level executives take. Even Google the most anti-people company in tech, has brought on customer service reps for their enterprise and hardware products.</p>
-          <div class="page-header">
-            <h1><a href="#">Version 2 of Bitcoin has been released!</a></h1>
-          </div>
-          <div class="post-meta">
-            <div class="meta-date">February 15, 2014</div>
-            <div class="meta-tags">Bitcoin, lol, apa</div>
-            <div class="meta-comments">No comments</div>
-          </div>
-          <p>Our industry is a little odd to say the least No I am mot going to dribble on about haw tech, or perhaps more accurately the software industry, has made the world a much better place. What really means me proud to be in this field Is the amount of personal accountability our C level executives take. Even Google the most anti-people company in tech, has brought on customer service reps for their enterprise and hardware products.</p>
-          <div class="page-header">
-            <h1><a href="#">New API!</a></h1>
-          </div>
-          <div class="post-meta">
-            <div class="meta-date">February 15, 2014</div>
-            <div class="meta-tags">Bitcoin, lol, apa</div>
-            <div class="meta-comments">No comments</div>
-          </div>
-          <p>Our industry is a little odd to say the least No I am mot going to dribble on about haw tech, or perhaps more accurately the software industry, has made the world a much better place. What really means me proud to be in this field Is the amount of personal accountability our C level executives take. Even Google the most anti-people company in tech, has brought on customer service reps for their enterprise and hardware products.</p>
-        </div>
         </div>
       </div>
     </div>
@@ -89,7 +59,7 @@
     <div class="col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
       <div class="box-wrapper">
         <div class="box-extra-padded">
-          <h3>matachi.se</h3>
+          <h3>MaTachi.se</h3>
           <p>Copyright © 2013-2014 Daniel Jonsson.</p>
           <p>All content is licensed under Creative Commons Attribution 4.0 International.</p>
           <p>Theme from Bootswatch. Icons from Font Awesome. Font from Google.</p>
@@ -98,5 +68,8 @@
     </div>
   </footer>
 </div>
+<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+{% block body_extra %}{% endblock %}
 </body>
 </html>

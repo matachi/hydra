@@ -34,3 +34,10 @@ the following settings:
     PyCharm helpers path: /root/.pycharm_helpers
 
 And before starting a *Django server*, configure the host IP to `0.0.0.0:8000`.
+
+## Compile SocialSharePrivacy
+
+Source: <https://github.com/panzi/SocialSharePrivacy>
+
+    ./build.sh -m tumblr,twitter,facebook,pinterest -l none
+

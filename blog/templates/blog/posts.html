@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load title %}
+{% load breadcrumb %}
+
+{% block title %}{% title 'Blog' %}{% endblock %}
+
+{% block breadcrumb %}{% breadcrumb 'Home' 'index' 'Blog' %}{% endblock %}
+
+{% block head_extra %}
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1><a href="#">New API!</a></h1>
+  </div>
+  <div class="post-meta">
+    <div class="meta-date"><i class="fa fa-clock-o"></i> February 15, 2014</div>
+    <div class="meta-tags"><i class="fa fa-tag"></i> <a>Bitcoin</a>, technology, Dogecoin, Internet, Money</div>
+    <div class="meta-comments"><i class="fa fa-comment"></i> No comments</div>
+  </div>
+  <p>Our industry is a little odd to say the least No I am mot going to dribble on about haw tech, or perhaps more accurately the software industry, has made the world a much better place. What really means me proud to be in this field Is the amount of personal accountability our C level executives take. Even Google the most anti-people company in tech, has brought on customer service reps for their enterprise and hardware products.</p>
+{#  <div class="share clearfix"></div>#}
+  <div data-social-share-privacy="true" data-title="New API!" data-path-prefix="{% static 'socialshareprivacy/' %}" class="share clearfix"></div>
+  <div class="page-header">
+    <h1><a href="#">Version 2 of Bitcoin has been released!</a></h1>
+  </div>
+  <div class="post-meta">
+    <div class="meta-date">February 15, 2014</div>
+    <div class="meta-tags">Bitcoin, lol, apa</div>
+    <div class="meta-comments">No comments</div>
+  </div>
+  <p>Our industry is a little odd to say the least No I am mot going to dribble on about haw tech, or perhaps more accurately the software industry, has made the world a much better place. What really means me proud to be in this field Is the amount of personal accountability our C level executives take. Even Google the most anti-people company in tech, has brought on customer service reps for their enterprise and hardware products.</p>
+  <div data-social-share-privacy="true" data-title="Version 2 of Bitcoin has been released!" data-path-prefix="{% static 'socialshareprivacy/' %}" class="share clearfix"></div>
+  <div class="page-header">
+    <h1><a href="#">New API!</a></h1>
+  </div>
+  <div class="post-meta">
+    <div class="meta-date">February 15, 2014</div>
+    <div class="meta-tags">Bitcoin, lol, apa</div>
+    <div class="meta-comments">No comments</div>
+  </div>
+  <p>Our industry is a little odd to say the least No I am mot going to dribble on about haw tech, or perhaps more accurately the software industry, has made the world a much better place. What really means me proud to be in this field Is the amount of personal accountability our C level executives take. Even Google the most anti-people company in tech, has brought on customer service reps for their enterprise and hardware products.</p>
+  <div data-social-share-privacy="true" data-title="Test" data-path-prefix="{% static 'socialshareprivacy/' %}" class="share clearfix"></div>
+{% endblock %}
+
+{% block body_extra %}
+  <script type="text/javascript" src="http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $.fn.socialSharePrivacy.settings.order = ['twitter', 'facebook', 'pinterest', 'tumblr'];
+{#      $.fn.socialSharePrivacy.settings.css_path = '{%  static 'socialshareprivacy/stylesheets/jquery.socialshareprivacy.min.css' %}';#}
+{#      $.fn.socialSharePrivacy.settings.services.pinterest.dummy_box_img = '{% static 'socialshareprivacy/images/dummy_box_pinterest.png' %}';#}
+{#      $.fn.socialSharePrivacy.settings.services.pinterest.dummy_line_img = '{% static 'socialshareprivacy/images/dummy_pinterest.png' %}';#}
+{#      $.fn.socialSharePrivacy.settings.services.tumblr.box_img = '{% static 'socialshareprivacy/images/box_tumblr.png' %}';#}
+{#      $.fn.socialSharePrivacy.settings.services.tumblr.line_img = '{% static 'socialshareprivacy/images/tumblr.png' %}';#}
+{#      $.fn.socialSharePrivacy.settings.services.facebook.dummy_box_img = '{% static 'socialshareprivacy/images/dummy_box_facebook.png' %}';#}
+{#      $.fn.socialSharePrivacy.settings.services.facebook.dummy_line_img = '{% static 'socialshareprivacy/images/dummy_facebook.png' %}';#}
+{#      $.fn.socialSharePrivacy.settings.services.twitter.dummy_box_img = '{% static 'socialshareprivacy/images/dummy_box_twitter.png' %}';#}
+{#      $.fn.socialSharePrivacy.settings.services.twitter.dummy_line_img = '{% static 'socialshareprivacy/images/dummy_twitter.png' %}';#}
+{#      $('.share').socialSharePrivacy('enable');#}
+{#      $('.share').socialSharePrivacy({#}
+{#        order: ['twitter', 'facebook', 'pinterest', 'tumblr'],#}
+{#        css_path: '{% static 'socialshareprivacy/stylesheets/jquery.socialshareprivacy.min.css' %}',#}
+{#        services: {#}
+{#          pinterest: {#}
+{#            dummy_box_img: '{% static 'socialshareprivacy/images/dummy_box_pinterest.png' %}',#}
+{#            dummy_line_img: '{% static 'socialshareprivacy/images/dummy_pinterest.png' %}'#}
+{#          },#}
+{#          tumblr: {#}
+{#            box_img: '{% static 'socialshareprivacy/images/box_tumblr.png' %}',#}
+{#            line_img: '{% static 'socialshareprivacy/images/tumblr.png' %}'#}
+{#          },#}
+{#          facebook: {#}
+{#            dummy_box_img: '{% static 'socialshareprivacy/images/dummy_box_facebook.png' %}',#}
+{#            dummy_line_img: '{% static 'socialshareprivacy/images/dummy_facebook.png' %}'#}
+{#          },#}
+{#          twitter: {#}
+{#            dummy_box_img: '{% static 'socialshareprivacy/images/dummy_box_twitter.png' %}',#}
+{#            dummy_line_img: '{% static 'socialshareprivacy/images/dummy_twitter.png' %}'#}
+{#          }#}
+{#        }#}
+{#      });#}
+    });
+  </script>
+  <script src="{% static 'socialshareprivacy/javascripts/jquery.socialshareprivacy.min.autoload.js' %}"></script>
+{#  <script type="text/javascript">#}
+{#(function () {#}
+{#    var s = document.createElement('script');#}
+{#    var t = document.getElementsByTagName('script')[0];#}
+{##}
+{#    s.type = 'text/javascript';#}
+{#    s.async = true;#}
+{#    s.src = '{% static 'socialshareprivacy/javascripts/jquery.socialshareprivacy.min.autoload.js' %}';#}
+{##}
+{#    t.parentNode.insertBefore(s, t);#}
+{#})();#}
+{#</script>#}
+{% endblock %}
