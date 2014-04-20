@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load title %}
+{% load breadcrumb %}
+
+{% block title %}{% title object.title %}{% endblock %}
+
+{% block breadcrumb %}{% breadcrumb 'Home' 'index' 'Blog' 'blog:posts' object.title %}{% endblock %}
+
+{% block content %}
+  {% include 'blog/single.html' with blog=object %}
+{% endblock %}
