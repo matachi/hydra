@@ -9,6 +9,7 @@
   <meta name="author" content="">
   <title>{% block title %}MaTachi.se{% endblock %}</title>
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -31,11 +32,33 @@
             <li{% if page == 'about' %} class="active"{% endif %}><a href="#">about</a></li>
             <li{% if page == 'contact' %} class="active"{% endif %}><a href="{% url 'contact' %}">contact</a></li>
             <li{% if page == 'blog' %} class="active"{% endif %}><a href="{% url 'blog:posts' %}">blog</a></li>
+            <li>
+              <form method="get" name=f action="https://duckduckgo.com/">
+                <input type="hidden" name="sites"value="matachi.se">
+                <div class="input-group">
+                  <input type="text" name="q" maxlength="255" placeholder="Search" class="form-control">
+                  <span class="input-group-btn">
+                    <button type=submit class="btn btn-default" title="Powered by DuckDuckGo"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </form>
+            </li>
           </ul>
           <ul class="nav nav-pills visible-xs">
             <li{% if page == 'about' %} class="active"{% endif %}><a href="#">about</a></li>
-            <li{% if page == 'contact' %} class="active"{% endif %}><a href="{%  url 'contact' %} %}">contact</a></li>
+            <li{% if page == 'contact' %} class="active"{% endif %}><a href="{%  url 'contact' %}">contact</a></li>
             <li{% if page == 'blog' %} class="active"{% endif %}><a href="{%  url 'blog:posts' %}">blog</a></li>
+            <li>
+              <form method="get" name=f action="https://duckduckgo.com/">
+                <input type="hidden" name="sites"value="matachi.se">
+                <div class="input-group">
+                  <input type="text" name="q" maxlength="255" placeholder="Search" class="form-control">
+                  <span class="input-group-btn">
+                    <button type=submit class="btn btn-default" title="Powered by DuckDuckGo"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </form>
+            </li>
           </ul>
         </div>
       </header>
@@ -48,7 +71,7 @@
               <li class="active">Home</li>
             </ol>
           {% endblock %}
-          <div class="extra-padding">
+          <div class="extra-padding content">
             {% block content %}{% endblock %}
           </div>
         </div>
