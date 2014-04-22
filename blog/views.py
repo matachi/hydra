@@ -1,5 +1,8 @@
+from django.contrib.syndication.views import Feed
+from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import Http404
 from django.shortcuts import redirect
+from django.utils.feedgenerator import Atom1Feed
 from django.views.generic import ListView, DetailView
 
 from blog.models import Post
@@ -7,7 +10,7 @@ from blog.models import Post
 
 class PostsView(ListView):
     template_name = 'blog/posts.html'
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by('-date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -38,3 +41,26 @@ class PostView(DetailView):
             return super().get(self, request, *args, **kwargs)
         except Http404 as e:
             return redirect(e.args[0])
+
+
+class LatestPostsRssFeed(Feed):
+    title = 'MaTachi.se'
+    link = reverse_lazy('blog:posts')
+    description = 'Blog posts by Daniel Jonsson'
+
+    def items(self):
+        return Post.objects.order_by('-date')
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.content_html
+
+    def item_link(self, item):
+        return item.get_absolute_url()
+
+
+class LatestPostsAtomFeed(LatestPostsRssFeed):
+    feed_type = Atom1Feed
+    subtitle = LatestPostsRssFeed.description

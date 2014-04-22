@@ -7,6 +7,11 @@
 
 {% block breadcrumb %}{% breadcrumb 'Home' 'index' 'Blog' %}{% endblock %}
 
+{% block header %}
+  <h1>Blog</h1>
+  <p>Read my thoughts, encoded in UTF-8<br><a href="{% url 'blog:feed-rss' %}"><i class="fa fa-rss"></i> RSS 2.0 feed</a>, <a href="{% url 'blog:feed-atom' %}"><i class="fa fa-rss"></i> Atom 1.0 feed</a></p>
+{% endblock %}
+
 {% block content %}
   {% for post in object_list %}
     {% include 'blog/single.html' with header_link=True %}

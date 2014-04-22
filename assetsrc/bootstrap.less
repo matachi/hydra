@@ -3,8 +3,8 @@
 @import "mixins.less";
 
 // Reset
-//@import "normalize.less";
-//@import "print.less";
+@import "normalize.less";
+@import "print.less";
 
 // Core CSS
 @import "scaffolding.less";
@@ -16,17 +16,17 @@
 @import "buttons.less";
 
 // Components
-//@import "component-animations.less";
+@import "component-animations.less";
 //@import "glyphicons.less";
-@import "dropdowns.less";
+//@import "dropdowns.less";
 //@import "button-groups.less";
-@import "input-groups.less";
+//@import "input-groups.less";
 @import "navs.less";
 @import "navbar.less";
-@import "breadcrumbs.less";
+//@import "breadcrumbs.less";
 @import "pagination.less";
-//@import "pager.less";
-@import "labels.less";
+@import "pager.less";
+//@import "labels.less";
 //@import "badges.less";
 //@import "jumbotron.less";
 //@import "thumbnails.less";
@@ -48,143 +48,172 @@
 @import "utilities.less";
 @import "responsive-utilities.less";
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300);
+@import url(http://fonts.googleapis.com/css?family=Share);
 
 /*@font-size-base: 13px;*/
-@font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@headings-font-family: "Open Sans Condensed";
-@headings-font-weight: 700;
+@font-family-sans-serif: "Share", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-size-base: 17px;
+@headings-font-family: "Share", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@headings-font-weight: 400;
+@text-color: #606C6C;
+@navbar-margin-bottom: 0;
 
-body {
-  background-image: url('../img/skulls.png');
-  padding: 30px 0 50px;
-}
-
-@media (max-width: @screen-xs-max) {
-  .container {
-    padding: 0;
-    > .row {
-      margin: 0;
-      > [class^='col-'] {
-        padding: 5px;
+.navbar-default {
+  .navbar-brand {
+    color: #428BCA;
+  }
+  .navbar-brand:hover, .navbar-brand:focus {
+    color: #2A6496;
+  }
+  .collapse {
+    .navbar-nav {
+      > li {
+        a {
+          color: #428BCA;
+        }
+        a:hover, a:focus {
+          color: #2A6496;
+        }
+      }
+    }
+    @media (min-width: @screen-sm) {
+      li:last-child {
+        transition: all 0.2s ease-in-out;
+        width: 140px;
+        white-space: nowrap;
+      }
+      form input {
+        transition: width 0.2s ease-in-out;
+        width: 100px;
+      }
+    }
+  }
+  @media (min-width: @screen-sm) {
+    .expanded {
+      @media (max-width: @screen-sm-max) {
+        .navbar-nav {
+          li:last-child {
+            opacity: 0;
+            transition: all 0.2s ease-in-out;
+            width: 0px;
+          }
+        }
+      }
+      form input {
+        transition: width 0.2s ease-in-out;
+        overflow: visible;
+        width: 250px;
       }
     }
   }
 }
 
-.box-wrapper {
-  background-image: url('../img/wrapper.png');
-  border-radius: 10px;
-  margin-top: 20px;
-  padding: 10px;
-  width: 100%;
+/*http://stackoverflow.com/questions/19893187/bootstrap-3-input-group-in-navbar-form-takes-up-entire-width*/
+.navbar-input-group {
+  @media (min-width: @screen-sm) {
+    font-size: 0px; /*removes whitespace between button and input*/
+
+    input {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+    .btn {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-left: 0px;
+    }
+  }
   @media (max-width: @screen-xs-max) {
-    border-radius: 5px;
-    padding: 5px;
+    margin-top:0px;
+    margin-bottom:0px;
+
+    .btn {
+      width:100%;
+    }
   }
 }
 
-.box-common() {
-  background-color: #fff;
-  border-radius: 4px;
-  width: 100%;
-}
-
-.box {
-  .box-common;
-  padding: 10px;
-  @media (max-width: @screen-xs-max) {
-    padding: 5px;
-  }
-}
-
-.box-extra-padded {
-  .box-common;
-  padding: 10px 20px;
-}
-
-.extra-padding {
-  padding: 0 10px 10px;
-  @media (max-width: @screen-xs-max) {
-    padding: 0 5px 10px;
-  }
-}
-
-.box-header {
-  background-color: #b3b39d;
-  border-radius: 4px 4px 0 0;
+.header {
+  background: url(../img/header.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4) inset;
   color: #fff;
-  padding: 10px 20px;
   width: 100%;
-  h3 {
-    margin: 0;
+  padding: 100px 0;
+
+  @media (max-width: @screen-md-max) {
+    padding: 10% 0;
+  }
+  /*@media (max-width: @screen-md) {*/
+    /*padding: 10% 0;*/
+  /*}*/
+  /*@media (max-width: @screen-sm) {*/
+    /*padding: 15% 0;*/
+  /*}*/
+  .container {
+    * {
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+    h1 {
+      font-size: 60px;
+    }
+    p {
+      font-size: 30px;
+      min-height: 86px;
+    }
+    @media (max-width: @screen-sm-max) {
+      h1 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 20px;
+        min-height: 58px;
+      }
+    }
   }
 }
 
-.secondary-box {
-  background-color: #111;
-  border-radius: 4px;
-  color: #fff;
+#site-footer {
+  border-top: 1px solid #eee;
+  color: #798a8a;
+  font-size: 90%;
+  margin: 5em 0;
+  padding: 1em 0 0;
 }
 
-.brand {
-  font-family: 'Open Sans Condensed', sans-serif;
-  margin-bottom: 10px;
-  padding: 10px 20px;
+#site-footer p {
+  margin-bottom: 0px;
+}
+
+.scroll-to-top {
+  background-color: rgba(218, 234, 234, 0.75);
+  border: 1px solid #8a9898;
+  position: fixed; bottom: 30px; right: -5px;
+  padding: 8px 25px 8px 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  text-align:center;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 1);
+}
+.scroll-to-top:hover {
+  background-color: #d5e0e0;
+  transition: all 0.25s ease-in-out;
+}
+
+.post-meta {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  font-size: 80%;
+  margin: 0 0 20px;
+  padding: 8px 15px;
+  text-transform: uppercase;
   width: 100%;
-  h1, h2 {
-    margin: 0;
-    font-weight: 700;
+  > div:not(:last-child) {
+    padding-right: 10px;
   }
-  .tagline {
-    margin: 10px 0 5px;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-}
-
-.content {
-  h1, h2, h3, h4, h5, h6 {
-    color: #444;
-  }
-  .post-meta {
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    font-size: 80%;
-    margin: 0 0 20px;
-    padding: 8px 15px;
-    text-transform: uppercase;
-    width: 100%;
-    > div:not(:last-child) {
-      padding-right: 10px;
-    }
-    > div {
-      display: inline-block;
-      padding: 2px 0;
-    }
-  }
-}
-
-header {
-  .nav-stacked > li:last-child {
-    padding-top: 10px;
-  }
-  form {
-    margin: 3px 0 0;
-    *[type="submit"] {
-      height: 34px;
-    }
-  }
-}
-
-footer {
-  p {
-    font-size: 90%;
-    margin-bottom: 5px;
-  }
-  p:last-child {
-    margin-bottom: 20px;
+  > div {
+    display: inline-block;
+    padding: 2px 0;
   }
 }
 

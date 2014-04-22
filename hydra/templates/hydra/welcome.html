@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load title %}
+{% load breadcrumb %}
+
+{% block title %}{% title 'Blog' %}{% endblock %}
+
+{% block breadcrumb %}{% breadcrumb 'Home' 'index' 'Blog' %}{% endblock %}
+
+{% block header %}
+  <h1>Welcome</h1>
+  <p>HTTP/1.1 200 OK</p>
+{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>My latest blog posts</h1>
+  </div>
+  <ol>
+    {% for post in object_list %}
+      <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>, {{ post.date|date:"F j, Y" }}</li>
+    {% endfor %}
+  </ol>
+{% endblock %}

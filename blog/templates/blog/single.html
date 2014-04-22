@@ -22,4 +22,4 @@
 <div class="post">
   {{ post.content_html|safe }}
 </div>
-<div data-social-share-privacy="true" data-title="New API!" data-path-prefix="{% static 'socialshareprivacy/' %}" class="share clearfix"></div>
+<div data-social-share-privacy="true" data-title="{{ post.title }}" data-description="{{ post.title }}" data-uri="http://matachi.se{{ post.get_absolute_url }}" data-path-prefix="{% static 'socialshareprivacy/' %}" class="share clearfix"></div>

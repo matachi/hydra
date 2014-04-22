@@ -41,3 +41,29 @@ Source: <https://github.com/panzi/SocialSharePrivacy>
 
     ./build.sh -m tumblr,twitter,facebook,pinterest -l none
 
+## Compile Bootstrap files
+
+Source: <http://getbootstrap.com/getting-started/>
+Instructions: <https://github.com/twbs/bootstrap#compiling-css-and-javascript>
+
+### Specify Bootstrap JS source files
+
+Change `concat.bootstrap` in Gruntfile.js to:
+
+    bootstrap: {
+      src: [
+        'js/transition.js',
+        'js/collapse.js'
+      ],
+      dest: 'dist/js/<%= pkg.name %>.js'
+    }
+
+### Compile
+
+    grunt dist
+
+### Copy files
+
+    cp less/bootstrap.less ~/PycharmProjects/hydra/assetsrc/.
+    cp dist/css/bootstrap.min.css ~/PycharmProjects/hydra/hydra/static/css/.
+    cp dist/js/bootstrap.min.js ~/PycharmProjects/hydra/hydra/static/js/.
