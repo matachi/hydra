@@ -67,3 +67,8 @@ Change `concat.bootstrap` in Gruntfile.js to:
     cp less/bootstrap.less ~/PycharmProjects/hydra/assetsrc/.
     cp dist/css/bootstrap.min.css ~/PycharmProjects/hydra/hydra/static/css/.
     cp dist/js/bootstrap.min.js ~/PycharmProjects/hydra/hydra/static/js/.
+
+## Compile syntax highlighting style sheet
+
+    pygmentize -S manni -f html -a ".codehilite pre" > manni.css
+    cp manni.css ~/PycharmProjects/hydra/hydra/static/css/.

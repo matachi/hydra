@@ -38,7 +38,8 @@ class Post(models.Model):
 
 @receiver(pre_save, sender=Post)
 def pre_save_post(**kwargs):
-    content_html = markdown.markdown(kwargs['instance'].content)
+    content_html = markdown.markdown(kwargs['instance'].content,
+                                     extensions=['codehilite'])
     soup = BeautifulSoup(content_html)
     for tag in soup.find_all(re.compile(r'h\d')):
         if tag.parent is soup:
