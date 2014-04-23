@@ -44,5 +44,5 @@ def pre_save_post(**kwargs):
     for tag in soup.find_all(re.compile(r'h\d')):
         if tag.parent is soup:
             tag.name = 'h%d' % (int(tag.name[1]) + 1)
-    kwargs['instance'].content_html = soup.prettify()
+    kwargs['instance'].content_html = str(soup)
     kwargs['instance'].slug = slugify(kwargs['instance'].title)
