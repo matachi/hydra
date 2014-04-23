@@ -45,4 +45,5 @@ def pre_save_post(**kwargs):
         if tag.parent is soup:
             tag.name = 'h%d' % (int(tag.name[1]) + 1)
     kwargs['instance'].content_html = str(soup)
-    kwargs['instance'].slug = slugify(kwargs['instance'].title)
+    kwargs['instance'].slug = slugify(
+        kwargs['instance'].title.replace('.', '-'))
