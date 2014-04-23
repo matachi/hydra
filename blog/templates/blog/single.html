@@ -17,7 +17,7 @@
       {% if not forloop.last %},{% endif %}
     {% endfor %}
   </div>
-  <div class="meta-comments"><i class="fa fa-comment"></i> No comments</div>
+  <div class="meta-comments"><i class="fa fa-comment"></i> <a href="{{ post.get_absolute_url }}#disqus_thread">Comments</a></div>
 </div>
 <div class="post">
   {{ post.content_html|safe }}

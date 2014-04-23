@@ -219,20 +219,28 @@
 
 // SocialSharePrivacy
 .share {
+  padding: 30px 0;
   width: 100%;
+  .social_share_privacy_area.line > li {
+    margin-top: 10px !important;
+    div.tweet {
+      width: 70px;
+    }
+    div.fb_like {
+      width: 65px;
+    }
+    div.pinit {
+      width: 30px;
+    }
+    div.tumblr {
+      width: 90px;
+    }
+  }
+  .social_share_privacy_area.line > .settings_info {
+    width: 135;
+  }
 }
-.share .social_share_privacy_area.line li {
-  margin-top: 10px !important;
-  div.tweet {
-    width: 70px;
-  }
-  div.fb_like {
-    width: 65px;
-  }
-  div.pinit {
-    width: 30px;
-  }
-  div.tumblr {
-    width: 90px;
-  }
+
+#disqus_thread {
+  padding: 0 0 30px;
 }

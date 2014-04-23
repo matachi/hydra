@@ -9,4 +9,10 @@
 
 {% block content %}
   {% include 'blog/single.html' with blog=object %}
+  {% include 'blog/comments.html' %}
+{% endblock %}
+
+{% block body_extra %}
+  {{ block.super }}
+  {% include 'blog/disqus-thread.html' %}
 {% endblock %}
