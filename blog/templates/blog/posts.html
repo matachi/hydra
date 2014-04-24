@@ -17,11 +17,5 @@
 {% endblock %}
 
 {% block body_extra %}
-  <script type="text/javascript" src="//panzi.github.io/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $.fn.socialSharePrivacy.settings.order = ['twitter', 'facebook', 'pinterest', 'tumblr'];
-    });
-  </script>
-  <script src="{% static 'socialshareprivacy/javascripts/jquery.socialshareprivacy.min.autoload.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/hydra.blog.min.js' %}"></script>
 {% endblock %}

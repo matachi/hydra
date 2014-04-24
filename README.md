@@ -41,6 +41,11 @@ Source: <https://github.com/panzi/SocialSharePrivacy>
 
     ./build.sh -m tumblr,twitter,facebook,pinterest -l none
 
+## Compile syntax highlighting style sheet
+
+    pygmentize -S manni -f html -a ".codehilite pre" > manni.css
+    cp manni.css ~/PycharmProjects/hydra/assetsrc/.
+
 ## Compile Bootstrap files
 
 Source: <http://getbootstrap.com/getting-started/>
@@ -65,10 +70,22 @@ Change `concat.bootstrap` in Gruntfile.js to:
 ### Copy files
 
     cp less/bootstrap.less ~/PycharmProjects/hydra/assetsrc/.
-    cp dist/css/bootstrap.min.css ~/PycharmProjects/hydra/hydra/static/css/.
-    cp dist/js/bootstrap.min.js ~/PycharmProjects/hydra/hydra/static/js/.
+    cp dist/css/bootstrap.css ~/PycharmProjects/hydra/assetsrc/.
+    cp dist/js/bootstrap.min.js ~/PycharmProjects/hydra/assetsrc/.
 
-## Compile syntax highlighting style sheet
+## Minimize JS
 
-    pygmentize -S manni -f html -a ".codehilite pre" > manni.css
-    cp manni.css ~/PycharmProjects/hydra/hydra/static/css/.
+### Hydra
+
+    cd assetsrc/
+    uglifyjs boostrap.min.js scroll-to-top.js -c -m -o ../hydra/static/js/hydra.min.js
+
+### Blog
+
+    cd assetsrc/blog
+    uglifyjs jquery.cookies.js socialshareprivacy.js jquery.socialshareprivacy.min.autoload.js -c -m -o ../../hydra/static/js/hydra.blog.min.js
+
+## Minimize CSS
+
+    cd assetsrc/
+    uglifycss boostrap.css manni.min.css > ../hydra/static/css/hydra.min.css
