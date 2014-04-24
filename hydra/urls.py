@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^about/$', AboutView.as_view(), name='about'),
     url(r'^online-presence/$', ContactView.as_view(), name='contact'),
     url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'^comments/', include('django_comments_xtd.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

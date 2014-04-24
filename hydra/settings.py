@@ -39,6 +39,12 @@ INSTALLED_APPS = (
 
     #'pipeline',
 
+    'widget_tweaks',
+
+    'django.contrib.sites',
+    'django.contrib.comments',
+    'django_comments_xtd',
+
     'hydra',
     'blog',
 )
@@ -57,6 +63,14 @@ ROOT_URLCONF = 'hydra.urls'
 
 WSGI_APPLICATION = 'hydra.wsgi.application'
 
+# Required by django_comments_xtd
+SITE_ID = 1
+
+COMMENTS_APP = 'django_comments_xtd'
+
+COMMENTS_XTD_MAX_THREAD_LEVEL = 5
+
+COMMENTS_XTD_CONFIRM_EMAIL = False
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases

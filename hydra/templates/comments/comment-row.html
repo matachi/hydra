@@ -1,0 +1,31 @@
+{% load i18n comments subtract %}
+
+<div class="row comment" id="c{{ comment.id }}">
+  {% if indent %}
+    <div class="col-xs-{{ '12'|subtract:comment.level }} col-xs-offset-{{ comment.level }}">
+  {% else %}
+    <div class="col-xs-12">
+  {% endif %}
+    <dl>
+      <dt>
+        <strong>{% if comment.url %}
+          <a href="{{ comment.url }}">{{ comment.name }}</a>
+        {% else %}
+          {{ comment.name }}
+        {% endif %}</strong>
+        {% if comment.user %}
+          {% if comment.user.is_staff %}
+            <span class="label label-primary">mod</span>
+          {% endif %}
+        {% endif %}
+        - <a href="{{ comment.object.get_absolute_url }}#c{{ comment.id }}">{{ comment.submit_date|date:'F j, Y, H:i A' }}</a>
+        {% if show_reply %}
+          {% if comment.allow_thread %} - <a href="{{ comment.get_reply_url }}">{% trans "Reply" %}</a>{% endif %}
+        {% endif %}
+      </dt>
+      <dd>
+        {{ comment.comment }}
+      </dd>
+    </dl>
+  </div>
+</div>

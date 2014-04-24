@@ -1,18 +1,11 @@
 {% extends 'blog/posts.html' %}
-{% load staticfiles %}
-{% load title %}
-{% load breadcrumb %}
+{% load staticfiles title breadcrumb %}
 
 {% block title %}{% title object.title %}{% endblock %}
 
 {% block breadcrumb %}{% breadcrumb 'Home' 'index' 'Blog' 'blog:posts' object.title %}{% endblock %}
 
 {% block content %}
-  {% include 'blog/single.html' with blog=object %}
-  {% include 'blog/comments.html' %}
-{% endblock %}
-
-{% block body_extra %}
-  {{ block.super }}
-  {% include 'blog/disqus-thread.html' %}
+  {% include 'blog/single.html' with post=object %}
+  {% include 'blog/comments.html' with object=object %}
 {% endblock %}

@@ -1,0 +1,13 @@
+{% if comment_list %}
+  <div class="page-header">
+    <h1 id="comments">Comments</h1>
+  </div>
+{% else %}
+  <div id="comments"></div>
+{% endif %}
+{% for comment in comment_list %}
+  {% include 'comments/comment-row.html' with indent=True show_reply=True %}
+  {% if not forloop.last %}
+    <hr>
+  {% endif %}
+{% endfor %}

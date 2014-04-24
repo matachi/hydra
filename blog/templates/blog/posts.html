@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
-{% load title %}
-{% load breadcrumb %}
+{% load staticfiles title breadcrumb %}
 
 {% block title %}{% title 'Blog' %}{% endblock %}
 
@@ -26,5 +24,4 @@
     });
   </script>
   <script src="{% static 'socialshareprivacy/javascripts/jquery.socialshareprivacy.min.autoload.js' %}"></script>
-  {% include 'blog/disqus-count.html' %}
 {% endblock %}
