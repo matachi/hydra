@@ -1,9 +1,7 @@
 {% extends 'blog/posts.html' %}
-{% load staticfiles title breadcrumb %}
+{% load staticfiles title %}
 
 {% block title %}{% title object.title %}{% endblock %}
-
-{% block breadcrumb %}{% breadcrumb 'Home' 'index' 'Blog' 'blog:posts' object.title %}{% endblock %}
 
 {% block content %}
   {% include 'blog/single.html' with post=object %}
