@@ -7,6 +7,7 @@ pip install Markdown
 pip install beautifulsoup4
 pip install Pygments
 pip install django-pipeline
+pip install django-widget-tweaks
 
 pip install six
 pip install pytz
