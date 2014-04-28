@@ -88,4 +88,4 @@ Change `concat.bootstrap` in Gruntfile.js to:
 ## Minimize CSS
 
     cd assetsrc/
-    uglifycss boostrap.css manni.min.css > ../hydra/static/css/hydra.min.css
+    uglifycss bootstrap.css manni.min.css > ../hydra/static/css/hydra.min.css
