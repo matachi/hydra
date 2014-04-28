@@ -10,7 +10,7 @@
 
 {% block content %}
   {% for post in object_list %}
-    {% include 'blog/single.html' with header_link=True %}
+    {% include 'blog/single.html' with header_link=True summarize_post=True %}
   {% endfor %}
 {% endblock %}
 

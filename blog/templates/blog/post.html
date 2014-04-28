@@ -4,6 +4,6 @@
 {% block title %}{% title object.title %}{% endblock %}
 
 {% block content %}
-  {% include 'blog/single.html' with post=object %}
+  {% include 'blog/single.html' with post=object summarize_post=False %}
   {% include 'blog/comments.html' with object=object %}
 {% endblock %}

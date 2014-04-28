@@ -20,7 +20,14 @@
   {% get_comment_count for post as comment_count %}
   <div class="meta-comments"><i class="fa fa-comment"></i> <a href="{{ post.get_absolute_url }}#comments">{{ comment_count }} Comment{{ comment_count|pluralize }}</a></div>
 </div>
-<div class="post">
-  {{ post.content_html|safe }}
-</div>
+  {% if summarize_post %}
+    <div class="post">
+      {{ post.content_html|striptags|truncatewords:40 }}<br>
+    </div>
+    <a class="btn btn-primary btn-xs read-more" href="{{ post.get_absolute_url }}">Read more</a>
+  {% else %}
+    <div class="post">
+      {{ post.content_html|safe }}
+    </div>
+  {% endif %}
 <div data-social-share-privacy="true" data-title="{{ post.title }}" data-description="{{ post.title }}" data-uri="http://matachi.se{{ post.get_absolute_url }}" data-path-prefix="{% static 'socialshareprivacy/' %}" class="share clearfix"></div>
