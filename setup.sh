@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-virtualenv -p /usr/bin/python3 env
+virtualenv env
 source env/bin/activate
 pip install django
 pip install Markdown
