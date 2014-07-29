@@ -72,6 +72,8 @@ COMMENTS_XTD_MAX_THREAD_LEVEL = 5
 
 COMMENTS_XTD_CONFIRM_EMAIL = False
 
+COMMENTS_XTD_FORM_CLASS = 'blog.forms.SpamProtectedCommentForm'
+
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
