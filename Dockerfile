@@ -17,5 +17,14 @@ RUN mkdir /var/run/sshd
 
 RUN apt-get install -y python3 python3-pip sqlite3
 RUN pip-3.2 install django
+RUN pip-3.2 install Markdown
+RUN pip-3.2 install beautifulsoup4
+RUN pip-3.2 install Pygments
+RUN pip-3.2 install django-pipeline
+RUN pip-3.2 install django-widget-tweaks
+
+RUN pip-3.2 install six
+RUN pip-3.2 install pytz
+RUN pip-3.2 install django-comments-xtd
 
 CMD /usr/sbin/sshd && bash
