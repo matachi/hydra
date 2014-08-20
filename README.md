@@ -1,6 +1,8 @@
 # Hydra
 
-Podcast site built with Django.
+Personal website and blog.
+
+Author: Daniel Jonsson
 
 ## Run with Docker
 
@@ -65,7 +67,7 @@ This is already done by `$ gulp build`.
 
     $ pygmentize -S manni -f html -a ".codehilite pre" > manni.css
 
-## Manually build SocialSharePrivacy
+## Manually build Social Share Privacy
 
 This is already done by `$ gulp build`.
 
