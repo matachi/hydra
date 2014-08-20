@@ -35,12 +35,6 @@ the following settings:
 
 And before starting a *Django server*, configure the host IP to `0.0.0.0:8000`.
 
-## Compile SocialSharePrivacy
-
-Source: <https://github.com/panzi/SocialSharePrivacy>
-
-    $ ./build.sh -m tumblr,twitter,facebook -l none
-
 ## Build JS and CSS
 
 ### Prerequisites
@@ -70,3 +64,11 @@ Note, the above command will also execute [postinstall.sh](postinstall.sh).
 This is already done by `$ gulp build`.
 
     $ pygmentize -S manni -f html -a ".codehilite pre" > manni.css
+
+## Manually build SocialSharePrivacy
+
+This is already done by `$ gulp build`.
+
+Download from <https://github.com/panzi/SocialSharePrivacy> and run:
+
+    $ ./build.sh -m tumblr,twitter,facebook -l none
