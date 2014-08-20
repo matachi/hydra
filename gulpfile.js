@@ -3,6 +3,9 @@
 var exec = require('child_process').exec;
 
 var del = require('del');
+var merge = require('merge-stream');
+var source = require('vinyl-source-stream');
+var es = require('event-stream');
 
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
@@ -58,12 +61,15 @@ gulp.task('blogJs', function() {
  * Build the site's CSS.
  */
 gulp.task('siteCss', function() {
-  return gulp.src([
-    'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    'assetsrc/manni.min.css',
-  ])
+  return merge(
+    gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+  ,
+    es.child(exec('./env/bin/pygmentize -S manni -f html -a ".codehilite pre"'))
+    .pipe(source('manni.css'))
+  )
+    .pipe(plugins.order(['bootstrap.min.css', 'manni.css']))
     .pipe(plugins.minifyCss({keepSpecialComments: 0}))
-    .pipe(plugins.concat('hydra.min.css'))
+    .pipe(plugins.streamify(plugins.concat('hydra.min.css')))
     .pipe(gulp.dest('hydra/static/css/'))
 });
 

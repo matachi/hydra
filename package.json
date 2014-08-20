@@ -5,13 +5,18 @@
   "devDependencies": {
     "bootstrap": "^3.2.0",
     "del": "^0.1.2",
+    "event-stream": "^3.1.7",
     "gulp": "^3.8.7",
     "gulp-concat": "^2.3.4",
     "gulp-load-plugins": "^0.5.3",
     "gulp-minify-css": "^0.3.7",
-    "gulp-uglify": "^0.3.1"
+    "gulp-order": "^1.1.1",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "^0.3.1",
+    "merge-stream": "^0.1.5",
+    "vinyl-source-stream": "^0.1.1"
   },
   "scripts": {
-    "postinstall": "cd node_modules/bootstrap && npm install && cd -"
+    "postinstall": "./postinstall.sh"
   }
 }

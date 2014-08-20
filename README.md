@@ -41,21 +41,17 @@ Source: <https://github.com/panzi/SocialSharePrivacy>
 
     $ ./build.sh -m tumblr,twitter,facebook -l none
 
-## Compile syntax highlighting style sheet
-
-    $ pygmentize -S manni -f html -a ".codehilite pre" > manni.css
-    $ cp manni.css ~/PycharmProjects/hydra/assetsrc/.
-
 ## Build JS and CSS
 
 ### Prerequisites
 
-Install npm and gulp. Here are instructions for how to do it on a
+Install npm, gulp and virtualenv. Here are instructions for how to do it on a
 Debian based system (Ubuntu for example):
 
     $ sudo apt-get install nodejs
     $ sudo npm install -g gulp
     $ sudo chown -R `whoami`:`whoami` ~/.npm ~/tmp
+    $ sudo apt-get install python-virtualenv
 
 ### Setup
 
@@ -63,6 +59,15 @@ Install build tools and dependencies:
 
     $ npm install
 
+Note, the above command will also execute [postinstall.sh](postinstall.sh).
+
 ### Build
 
     $ gulp build
+
+## Manually build the syntax highlighting stylesheet
+
+This is already done by `$ gulp build`.
+
+    $ pygmentize -S manni -f html -a ".codehilite pre" > manni.css
+    $ cp manni.css ~/PycharmProjects/hydra/assetsrc/.
