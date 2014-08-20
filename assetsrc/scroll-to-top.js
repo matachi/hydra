@@ -14,13 +14,4 @@ $(document).ready(function () {
     $('html, body').animate({scrollTop: 0}, 250);
     return false;
   });
-
-  var $collapse = $('.collapse');
-  var $form = $($collapse).children('form');
-  $form.focusin(function() {
-    $collapse.addClass('expanded');
-  });
-  $form.focusout(function() {
-    $collapse.removeClass('expanded');
-  });
 });

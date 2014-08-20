@@ -72,6 +72,7 @@ gulp.task('buildBootstrap', function() {
 gulp.task('siteJs', function() {
   return gulp.src([
     'assetsrc/scroll-to-top.js',
+    'assetsrc/expand-search.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js'
   ])
     .pipe(plugins.uglify())
