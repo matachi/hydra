@@ -70,4 +70,3 @@ Note, the above command will also execute [postinstall.sh](postinstall.sh).
 This is already done by `$ gulp build`.
 
     $ pygmentize -S manni -f html -a ".codehilite pre" > manni.css
-    $ cp manni.css ~/PycharmProjects/hydra/assetsrc/.
