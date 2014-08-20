@@ -6,16 +6,16 @@ Podcast site built with Django.
 
 Build the Docker image:
 
-    sudo docker build -t matachi/hydra .
+    $ sudo docker build -t matachi/hydra .
 
 Run the image:
 
-    sudo docker run -i -t -v `pwd`:`pwd`:rw -p 127.0.0.1:8000:8000 -p 127.0.0.1:1337:22 matachi/hydra
+    $ sudo docker run -i -t -v `pwd`:`pwd`:rw -p 127.0.0.1:8000:8000 -p 127.0.0.1:1337:22 matachi/hydra
 
 In the container, `cd` into the project folder, which is located at the same
 path as on the host. Then start the Django development web server with:
 
-    python3 manage.py runserver 0.0.0.0:8000
+    $ python3 manage.py runserver 0.0.0.0:8000
 
 ## Configure PyCharm
 
@@ -39,53 +39,30 @@ And before starting a *Django server*, configure the host IP to `0.0.0.0:8000`.
 
 Source: <https://github.com/panzi/SocialSharePrivacy>
 
-    ./build.sh -m tumblr,twitter,facebook,pinterest -l none
+    $ ./build.sh -m tumblr,twitter,facebook -l none
 
 ## Compile syntax highlighting style sheet
 
-    pygmentize -S manni -f html -a ".codehilite pre" > manni.css
-    cp manni.css ~/PycharmProjects/hydra/assetsrc/.
+    $ pygmentize -S manni -f html -a ".codehilite pre" > manni.css
+    $ cp manni.css ~/PycharmProjects/hydra/assetsrc/.
 
-## Compile Bootstrap files
+## Build JS and CSS
 
-Source: <http://getbootstrap.com/getting-started/>
-Instructions: <https://github.com/twbs/bootstrap#compiling-css-and-javascript>
+### Prerequisites
 
-### Specify Bootstrap JS source files
+Install npm and gulp. Here are instructions for how to do it on a
+Debian based system (Ubuntu for example):
 
-Change `concat.bootstrap` in Gruntfile.js to:
+    $ sudo apt-get install nodejs
+    $ sudo npm install -g gulp
+    $ sudo chown -R `whoami`:`whoami` ~/.npm ~/tmp
 
-    bootstrap: {
-      src: [
-        'js/transition.js',
-        'js/collapse.js'
-      ],
-      dest: 'dist/js/<%= pkg.name %>.js'
-    }
+### Setup
 
-### Compile
+Install build tools and dependencies:
 
-    grunt dist
+    $ npm install
 
-### Copy files
+### Build
 
-    cp less/bootstrap.less ~/PycharmProjects/hydra/assetsrc/.
-    cp dist/css/bootstrap.css ~/PycharmProjects/hydra/assetsrc/.
-    cp dist/js/bootstrap.min.js ~/PycharmProjects/hydra/assetsrc/.
-
-## Minimize JS
-
-### Hydra
-
-    cd assetsrc/
-    uglifyjs boostrap.min.js scroll-to-top.js -c -m -o ../hydra/static/js/hydra.min.js
-
-### Blog
-
-    cd assetsrc/blog
-    uglifyjs jquery.cookies.js socialshareprivacy.js jquery.socialshareprivacy.min.autoload.js -c -m -o ../../hydra/static/js/hydra.blog.min.js
-
-## Minimize CSS
-
-    cd assetsrc/
-    uglifycss bootstrap.css manni.min.css > ../hydra/static/css/hydra.min.css
+    $ gulp build
