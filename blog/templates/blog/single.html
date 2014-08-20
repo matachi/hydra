@@ -30,4 +30,4 @@
       {{ post.content_html|safe }}
     </div>
   {% endif %}
-<div data-social-share-privacy="true" data-title="{{ post.title }}" data-description="{{ post.title }}" data-uri="http://matachi.se{{ post.get_absolute_url }}" data-path-prefix="{% static 'socialshareprivacy/' %}" class="share clearfix"></div>
+<div data-social-share-privacy="true" data-title="{{ post.title }}" data-description="{{ post.title }}" data-order="twitter facebook tumlr" data-uri="http://matachi.se{{ post.get_absolute_url }}" data-path-prefix="{% static 'socialshareprivacy/' %}" class="share clearfix"></div>
