@@ -31,10 +31,30 @@
                     {% if project.license %}
                         <li><i class="fa fa-legal fa-fw"></i> License: {{ project.license }}</li>
                     {% endif %}
-                    <li><i class="fa fa-home fa-fw"></i> Platform{{ project.platforms.all|length|pluralize }}: {% for platform in project.platforms.all %}{{ platform.title }}{% endfor %}</li>
-                    <li><i class="fa fa-terminal fa-fw"></i> Programming language{{ project.programming_languages.all|length|pluralize }}: {% for language in project.programming_languages.all %}{{ language.title }}{% endfor %}</li>
-                    <li><i class="fa fa-puzzle-piece fa-fw"></i> Librar{{ project.libraries.all|length|pluralize:"y,ies" }}: {% for library in project.libraries.all %}<a href="{{ library.url }}">{{ library.title }}</a>{% endfor %}</li>
-                    <li><i class="fa fa-cog fa-fw"></i> Tool{{ project.tools.all|length|pluralize }}: {% for tool in project.tools.all %}<a href="{{ tool.url }}">{{ tool.title }}</a>{% endfor %}</li>
+                    <li>
+                        <i class="fa fa-home fa-fw"></i> Platform{{ project.platforms.all|length|pluralize }}:
+                        {% for platform in project.platforms.all %}
+                            {{ platform.title }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                    <li>
+                        <i class="fa fa-terminal fa-fw"></i> Programming language{{ project.programming_languages.all|length|pluralize }}:
+                        {% for language in project.programming_languages.all %}
+                            {{ language.title }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                    <li>
+                        <i class="fa fa-puzzle-piece fa-fw"></i> Librar{{ project.libraries.all|length|pluralize:"y,ies" }}:
+                        {% for library in project.libraries.all %}
+                            <a href="{{ library.url }}">{{ library.title }}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                    <li>
+                        <i class="fa fa-cog fa-fw"></i> Tool{{ project.tools.all|length|pluralize }}:
+                        {% for tool in project.tools.all %}
+                            <a href="{{ tool.url }}">{{ tool.title }}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
                     {% if project.screenshots.all %}
                         <li><i class="fa fa-picture-o fa-fw"></i> Screenshots:</li>
                     {% endif %}
