@@ -19,7 +19,7 @@
                 <img src="{{ project.title_image.url }}" class="img-responsive img-circle">
             </div>
             <div class="col-sm-8">
-                <p>{{ project.description }}</p>
+                {{ project.description|linebreaks }}
                 <ul class="list-unstyled">
                     {% for link in project.links.all %}
                         <li><i class="fa fa-globe fa-fw"></i> {{ link.title }}: <a href="{{ link.url }}">{{ link.url|strip_url }}</a></li>
