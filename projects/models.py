@@ -92,6 +92,11 @@ class Link(models.Model):
     project = models.ForeignKey('Project', related_name='links')
 
 
+def title_image_filename(instance, filename):
+    _filename, file_extension = os.path.splitext(filename)
+    return 'projects/title-images/%s%s' % (instance.title, file_extension)
+
+
 class Project(models.Model):
     title = models.CharField(max_length=50, unique=True)
     description = models.TextField()
@@ -104,7 +109,8 @@ class Project(models.Model):
     libraries = models.ManyToManyField(Library, related_name='projects',
                                        blank=True)
     tools = models.ManyToManyField(Tool, related_name='projects', blank=True)
-    title_image = models.ImageField(upload_to='projects/title-images/')
+    title_image = models.ImageField(upload_to=title_image_filename,
+                                    storage=OverwriteStorage())
     screenshots = models.ManyToManyField(Screenshot, related_name='projects',
                                          blank=True)
 
