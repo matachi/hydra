@@ -56,7 +56,7 @@
                         {% endfor %}
                     </li>
                     {% if project.screenshots.all %}
-                        <li><i class="fa fa-picture-o fa-fw"></i> Screenshots:</li>
+                        <li><i class="fa fa-picture-o fa-fw"></i> Screenshot{{ project.screenshots.all|length|pluralize }}:</li>
                     {% endif %}
                 </ul>
                 {% for screenshot in project.screenshots.all %}
