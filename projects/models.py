@@ -3,6 +3,7 @@ from django.conf import settings
 from django.core.files import File
 from django.core.files.storage import FileSystemStorage
 from django.db import models
+from django.template.defaultfilters import slugify
 import os
 from tempfile import NamedTemporaryFile
 
@@ -94,7 +95,8 @@ class Link(models.Model):
 
 def title_image_filename(instance, filename):
     _filename, file_extension = os.path.splitext(filename)
-    return 'projects/title-images/%s%s' % (instance.title, file_extension)
+    return 'projects/title-images/%s%s' % (slugify(instance.title),
+                                           file_extension)
 
 
 class Project(models.Model):
