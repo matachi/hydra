@@ -43,18 +43,22 @@
                             {{ language.title }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </li>
-                    <li>
-                        <i class="fa fa-puzzle-piece fa-fw"></i> Librar{{ project.libraries.all|length|pluralize:"y,ies" }}:
-                        {% for library in project.libraries.all %}
-                            <a href="{{ library.url }}">{{ library.title }}</a>{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </li>
-                    <li>
-                        <i class="fa fa-cog fa-fw"></i> Tool{{ project.tools.all|length|pluralize }}:
-                        {% for tool in project.tools.all %}
-                            <a href="{{ tool.url }}">{{ tool.title }}</a>{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </li>
+                    {% if project.libraries.all %}
+                        <li>
+                            <i class="fa fa-puzzle-piece fa-fw"></i> Librar{{ project.libraries.all|length|pluralize:"y,ies" }}:
+                            {% for library in project.libraries.all %}
+                                <a href="{{ library.url }}">{{ library.title }}</a>{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </li>
+                    {% endif %}
+                    {% if project.tools.all %}
+                        <li>
+                            <i class="fa fa-cog fa-fw"></i> Tool{{ project.tools.all|length|pluralize }}:
+                            {% for tool in project.tools.all %}
+                                <a href="{{ tool.url }}">{{ tool.title }}</a>{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </li>
+                    {% endif %}
                     {% if project.screenshots.all %}
                         <li><i class="fa fa-picture-o fa-fw"></i> Screenshot{{ project.screenshots.all|length|pluralize }}:</li>
                     {% endif %}
