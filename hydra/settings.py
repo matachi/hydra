@@ -45,6 +45,8 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django_comments_xtd',
 
+    'south',
+
     'hydra',
     'blog',
     'projects',

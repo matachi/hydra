@@ -102,6 +102,7 @@ def title_image_filename(instance, filename):
 class Project(models.Model):
     title = models.CharField(max_length=50, unique=True)
     description = models.TextField()
+    order = models.IntegerField(default=0)
     date = models.CharField(max_length=50)
     source_code = models.URLField(blank=True)
     license = models.CharField(max_length=50, blank=True)
