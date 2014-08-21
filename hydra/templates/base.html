@@ -34,8 +34,8 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li{% if page == 'about' %} class="active"{% endif %}><a href="{% url 'about' %}">about</a></li>
+          <li{% if page == 'projects' %} class="active"{% endif %}><a href="{% url 'projects:list' %}">projects/portfolio</a></li>
           <li{% if page == 'blog' %} class="active"{% endif %}><a href="{% url 'blog:posts' %}">blog</a></li>
-{#          <li><a href="#projects">projects</a></li>#}
           <li{% if page == 'contact' %} class="active"{% endif %}><a href="{% url 'contact' %}">online presence</a></li>
         </ul>
         <form class="navbar-form navbar-right navbar-input-group" role="search" method="get" name=f action="https://duckduckgo.com/">

@@ -11,7 +11,7 @@ RUN apt-get update
 RUN mkdir /root/.pycharm_helpers
 
 # Install and set up SSH
-RUN apt-get install -y openssh-server
+RUN apt-get install -y openssh-server libjpeg-dev
 RUN echo "root:pass" | chpasswd
 RUN mkdir /var/run/sshd
 
@@ -22,6 +22,7 @@ RUN pip-3.2 install beautifulsoup4
 RUN pip-3.2 install Pygments
 RUN pip-3.2 install django-pipeline
 RUN pip-3.2 install django-widget-tweaks
+RUN pip-3.2 install Pillow
 
 RUN pip-3.2 install six
 RUN pip-3.2 install pytz

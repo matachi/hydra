@@ -47,6 +47,7 @@ INSTALLED_APPS = (
 
     'hydra',
     'blog',
+    'projects',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -108,8 +109,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'blog/templates'),
     os.path.join(BASE_DIR, 'hydra/templates'),
+    os.path.join(BASE_DIR, 'projects/templates'),
 )
 
-# TEMPLATE_DIRS = (
-#     os.path.join(BASE_DIR, 'templates/')
-# )
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'

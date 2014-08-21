@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load title strip_url %}
+
+{% block title %}{% title 'Online presence' %}{% endblock %}
+
+{% block header %}
+    <h1>Projects and portfolio</h1>
+    <p>Things I have worked on</p>
+{% endblock %}
+
+{% block content %}
+
+    {% for project in object_list %}
+        <div class="page-header">
+            <h1>{{ project.title }}</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="{{ project.title_image.url }}" class="img-responsive img-circle">
+            </div>
+            <div class="col-sm-8">
+                <p>{{ project.description }}</p>
+                <ul class="list-unstyled">
+                    {% for link in project.links.all %}
+                        <li><i class="fa fa-globe fa-fw"></i> {{ link.title }}: <a href="{{ link.url }}">{{ link.url|strip_url }}</a></li>
+                    {% endfor %}
+                    <li><i class="fa fa-clock-o fa-fw"></i> Date: {{ project.date }}</li>
+                    {% if project.source_code %}
+                        <li><i class="fa fa-git fa-fw"></i> Source code: <a href="{{ project.source_code }}">{{ project.source_code|strip_url }}</a></li>
+                    {% endif %}
+                    {% if project.license %}
+                        <li><i class="fa fa-legal fa-fw"></i> License: {{ project.license }}</li>
+                    {% endif %}
+                    <li><i class="fa fa-home fa-fw"></i> Platform{{ project.platforms.all|length|pluralize }}: {% for platform in project.platforms.all %}{{ platform.title }}{% endfor %}</li>
+                    <li><i class="fa fa-terminal fa-fw"></i> Programming language{{ project.programming_languages.all|length|pluralize }}: {% for language in project.programming_languages.all %}{{ language.title }}{% endfor %}</li>
+                    <li><i class="fa fa-puzzle-piece fa-fw"></i> Librar{{ project.libraries.all|length|pluralize:"y,ies" }}: {% for library in project.libraries.all %}<a href="{{ library.url }}">{{ library.title }}</a>{% endfor %}</li>
+                    <li><i class="fa fa-cog fa-fw"></i> Tool{{ project.tools.all|length|pluralize }}: {% for tool in project.tools.all %}<a href="{{ tool.url }}">{{ tool.title }}</a>{% endfor %}</li>
+                    {% if project.screenshots.all %}
+                        <li><i class="fa fa-picture-o fa-fw"></i> Screenshots:</li>
+                    {% endif %}
+                </ul>
+                {% for screenshot in project.screenshots.all %}
+                    <a href="{{ screenshot.large.url }}"><img src="{{ screenshot.thumbnail.url }}" class="img-responsive img-thumbnail"></a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

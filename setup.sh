@@ -9,6 +9,9 @@ pip install Pygments
 pip install django-pipeline
 pip install django-widget-tweaks
 
+sudo apt-get install libjpeg-dev
+pip install Pillow
+
 pip install six
 pip install pytz
 pip install django-comments-xtd
