@@ -37,12 +37,14 @@
                             {{ platform.title }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </li>
-                    <li>
-                        <i class="fa fa-terminal fa-fw"></i> Programming language{{ project.programming_languages.all|length|pluralize }}:
-                        {% for language in project.programming_languages.all %}
-                            {{ language.title }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </li>
+                    {% if project.programming_languages.all %}
+                        <li>
+                            <i class="fa fa-terminal fa-fw"></i> Programming language{{ project.programming_languages.all|length|pluralize }}:
+                            {% for language in project.programming_languages.all %}
+                                {{ language.title }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </li>
+                    {% endif %}
                     {% if project.libraries.all %}
                         <li>
                             <i class="fa fa-puzzle-piece fa-fw"></i> Librar{{ project.libraries.all|length|pluralize:"y,ies" }}:

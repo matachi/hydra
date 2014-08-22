@@ -108,7 +108,8 @@ class Project(models.Model):
     license = models.CharField(max_length=50, blank=True)
     platforms = models.ManyToManyField(Platform, related_name='projects')
     programming_languages = models.ManyToManyField(ProgrammingLanguage,
-                                                   related_name='projects')
+                                                   related_name='projects',
+                                                   blank=True)
     libraries = models.ManyToManyField(Library, related_name='projects',
                                        blank=True)
     tools = models.ManyToManyField(Tool, related_name='projects', blank=True)
