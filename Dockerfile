@@ -17,20 +17,20 @@ RUN echo "root:pass" | chpasswd
 RUN mkdir /var/run/sshd
 
 RUN apt-get install -y python3-pip sqlite3
-RUN pip3 install django
-RUN pip3 install Markdown
-RUN pip3 install beautifulsoup4
-RUN pip3 install Pygments
-RUN pip3 install django-pipeline
-RUN pip3 install django-widget-tweaks
+RUN pip3 install Django==1.6.6
+RUN pip3 install Markdown==2.4.1
+RUN pip3 install beautifulsoup4==4.3.2
+RUN pip3 install Pygments==1.6
+RUN pip3 install django-pipeline==1.3.25
+RUN pip3 install django-widget-tweaks==1.3
 RUN pip3 install South==1.0.2
 
 RUN apt-get install -y libjpeg-dev
-RUN pip3 install Pillow
+RUN pip3 install Pillow==2.5.3
 
-RUN pip3 install six
-RUN pip3 install pytz
-RUN pip3 install django-comments-xtd
+RUN pip3 install six==1.7.3
+RUN pip3 install pytz==2014.4
+RUN pip3 install django-comments-xtd==1.3a1
 
 # Comment out a line from /etc/pam.d/sshd to not get `Connection to 127.0.0.1
 # closed. Exit status 254.` when connection to the container over ssh.
