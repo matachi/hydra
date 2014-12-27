@@ -42,13 +42,25 @@ And before starting a *Django server*, configure the host IP to `0.0.0.0:8000`.
 
 ### Prerequisites
 
-Install npm, gulp and virtualenv. Here are instructions for how to do it on a
-Debian based system (Ubuntu for example):
+Install Node.js, npm, gulp and virtualenv.
 
-    $ sudo apt-get install nodejs
+#### Debian and Ubuntu
+
+Instructions to install the prerequisites on a Debian based system (Ubuntu for
+example):
+
+    $ sudo apt-get install nodejs python-virtualenv
     $ sudo npm install -g gulp
     $ sudo chown -R `whoami`:`whoami` ~/.npm ~/tmp
-    $ sudo apt-get install python-virtualenv
+
+#### Fedora
+
+Instructions for Fedora:
+
+    $ sudo dnf install nodejs npm python-virtualenv
+    $ sudo npm install -g gulp
+
+Note, use `yum` instead of `dnf` if `dnf` isn't available.
 
 ### Setup
 
