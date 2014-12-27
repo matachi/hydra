@@ -20,6 +20,8 @@ path as on the host. Then start the Django development web server with:
 
     $ python3 manage.py runserver 0.0.0.0:8000
 
+Finally open [0.0.0.0:8000](http://0.0.0.0:8000) in the web browser.
+
 ## Configure PyCharm
 
 To work with the project in PyCharm and still run it in Docker, read the
