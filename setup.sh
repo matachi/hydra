@@ -3,7 +3,7 @@
 virtualenv env
 source env/bin/activate
 
-pip install Django==1.6.6
+pip install Django==1.6.8
 pip install Markdown==2.4.1
 pip install beautifulsoup4==4.3.2
 pip install Pygments==1.6

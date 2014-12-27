@@ -17,7 +17,7 @@ RUN echo "root:pass" | chpasswd
 RUN mkdir /var/run/sshd
 
 RUN apt-get install -y python3-pip sqlite3
-RUN pip3 install Django==1.6.6
+RUN pip3 install Django==1.6.8
 RUN pip3 install Markdown==2.4.1
 RUN pip3 install beautifulsoup4==4.3.2
 RUN pip3 install Pygments==1.6
