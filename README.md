@@ -76,6 +76,15 @@ Note, the above command will also execute [postinstall.sh](postinstall.sh).
 
     $ gulp build
 
+## Interact with a server
+
+Copy the SQLite database file from a server over SSH:
+
+    $ scp [hostname]:hydra/db.sqlite3 .
+
+This is useful when the site is deployed on a remote server and you want to
+retrieve the database for local testing and development.
+
 ## Manually build the syntax highlighting stylesheet
 
 This is already done by `$ gulp build`.
