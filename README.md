@@ -2,7 +2,8 @@
 
 Personal website and blog.
 
-Author: Daniel Jonsson
+Author: Daniel Jonsson  
+License: [MIT License](LICENSE)
 
 ## Run with Docker
 
