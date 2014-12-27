@@ -23,10 +23,7 @@ RUN pip3 install beautifulsoup4
 RUN pip3 install Pygments
 RUN pip3 install django-pipeline
 RUN pip3 install django-widget-tweaks
-# South 1.0 is broken on Python 3. As of writing this, the commit that fixes
-# this issue hasn't been packaged into a release yet.
-# Relevant commit: https://bitbucket.org/andrewgodwin/south/commits/e2c9102ee033cc6d2ada2c67358cbeb6ad4615c0
-RUN pip3 install https://bitbucket.org/andrewgodwin/south/get/e2c9102ee033.zip#egg=South
+RUN pip3 install South==1.0.2
 
 RUN apt-get install -y libjpeg-dev
 RUN pip3 install Pillow
