@@ -15,7 +15,7 @@ Run the image:
 
     $ sudo docker run -i -t -v `pwd`:/home/hydra/app:rw -p 8000:8000 -p 1337:22 matachi/hydra
 
-Then start the Django development web server:
+Then, inside the container, start the Django development web server:
 
     $ python3 /home/hydra/app/manage.py runserver 0.0.0.0:8000
 
