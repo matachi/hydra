@@ -13,14 +13,13 @@ Build the Docker image:
 
 Run the image:
 
-    $ sudo docker run -i -t -v `pwd`:`pwd`:rw -p 127.0.0.1:8000:8000 -p 127.0.0.1:1337:22 matachi/hydra
+    $ sudo docker run -i -t -v `pwd`:/home/hydra/app:rw -p 8000:8000 -p 1337:22 matachi/hydra
 
-In the container, `cd` into the project folder, which is located at the same
-path as on the host. Then start the Django development web server with:
+Then start the Django development web server:
 
-    $ python3 manage.py runserver 0.0.0.0:8000
+    $ python3 /home/hydra/app/manage.py runserver 0.0.0.0:8000
 
-Finally open [0.0.0.0:8000](http://0.0.0.0:8000) in the web browser.
+Finally open [127.0.0.1:8000](http://127.0.0.1:8000) in the web browser.
 
 ## Configure PyCharm
 
@@ -36,9 +35,15 @@ the following settings:
     Auth type: Password
     Password: pass
     Python interpreter path: /usr/bin/python3
-    PyCharm helpers path: /root/.pycharm_helpers
 
-And before starting a *Django server*, configure the host IP to `0.0.0.0:8000`.
+And before starting a *Django server*, make the following configurations:
+
+    Host: 0.0.0.0
+    Port: 8000
+    Path mappings: /path/to/hydra/on/host=/home/hydra/app
+
+Where `/path/to/hydra/on/host` is the directory on the host where this project
+directory is located.
 
 ## Build JS and CSS
 

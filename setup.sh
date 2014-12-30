@@ -16,4 +16,6 @@ pip install six==1.8.0
 pip install pytz==2014.10
 pip install django-comments-xtd==1.3a1
 
+python3 create_secret_key.py
 python3 manage.py collectstatic
+python3 manage.py syncdb

@@ -36,4 +36,4 @@ RUN sed -i 's/^\(session    required     pam\_loginuid\.so\)/\#\1/' /etc/pam.d/s
 
 RUN sed -i 's/^\(PermitRootLogin\) without-password/\1 yes/' /etc/ssh/sshd_config
 
-CMD /usr/sbin/sshd && bash
+CMD /usr/sbin/sshd && python3 /home/hydra/app/create_secret_key.py && python3 /home/hydra/app/manage.py syncdb && bash
